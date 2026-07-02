@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Breakup Registry Portal</title>
+<title>Breakup Registry Portal 💔</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,239 +15,266 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f19; }
-.premium-card { background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(24px); }
-.fade-enter { animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.broken-heart { animation: slowFloat 4s ease-in-out infinite; }
-@keyframes slowFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-8px) scale(1.03); } }
-.progress-bar { transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-.confetti {
-  position: fixed;
-  top: -20px;
-  pointer-events: none;
-  z-index: 9999;
-  animation: confettiFall 5s linear forwards;
-}
-@keyframes confettiFall {
-  0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 1;
+  body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: #0b0f19; 
   }
-
-  100% {
-    transform: translateY(110vh) rotate(1080deg);
-    opacity: 0;
+  .premium-card { 
+    background: rgba(17, 24, 39, 0.85); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(24px); 
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
   }
-}
-.evade-btn { transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; }
+  .fade-enter { animation: fadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+  @keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(20px) scale(0.98); } 
+    to { opacity: 1; transform: translateY(0) scale(1); } 
+  }
+  .broken-heart { 
+    animation: slowFloat 3.5s ease-in-out infinite; 
+    filter: drop-shadow(0 0 25px rgb(236 72 153 / 0.5));
+  }
+  @keyframes slowFloat { 
+    0%, 100% { transform: translateY(0) rotate(-8deg) scale(1); } 
+    50% { transform: translateY(-12px) rotate(8deg) scale(1.08); } 
+  }
+  .progress-bar { transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .confetti {
+    position: fixed;
+    top: -20px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 4s linear forwards;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(1440deg); opacity: 0; }
+  }
+  .evade-btn { 
+    transition: all 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+    position: relative; 
+  }
+  .neon-text {
+    text-shadow: 0 0 10px rgb(236 72 153),
+                 0 0 20px rgb(168 85 247);
+  }
 </style>
 </head>
 
-<body class="min-h-screen text-slate-100 flex flex-col justify-between overflow-x-hidden relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-950/40 via-slate-950 to-slate-950">
+<body class="min-h-screen text-slate-100 flex flex-col justify-between overflow-x-hidden relative bg-[radial-gradient(at_top_right,#7c3aed_0%,transparent_50%),radial-gradient(at_bottom_left,#db2777_0%,transparent_60%)]">
 
-<!-- Background Grid Overlay for Realism -->
-<div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+<!-- Background Grid -->
+<div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
 
-<!-- Top Status Progress Header -->
+<!-- Top Bar -->
 <div class="w-full fixed top-0 left-0 z-50">
-  <div class="h-1 bg-slate-800 w-full">
-    <div id="progress" class="h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 progress-bar" style="width:0%"></div>
+  <div class="h-1.5 bg-slate-800 w-full overflow-hidden">
+    <div id="progress" class="h-1.5 bg-gradient-to-r from-pink-500 via-purple-500 to-violet-500 progress-bar" style="width:0%"></div>
   </div>
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center bg-slate-950/40 backdrop-blur-md">
-    <div class="flex items-center gap-2 tracking-tight">
-      <span class="text-pink-500 text-lg font-bold">💔 CORE</span>
-      <span class="text-xs font-semibold bg-slate-800 px-2 py-0.5 rounded text-slate-400">v2.6.4</span>
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center bg-slate-950/70 backdrop-blur-lg border-b border-white/5">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">💔</span>
+      <div>
+        <span class="text-pink-400 font-black tracking-tighter text-2xl">HEARTBREAK</span>
+        <span class="text-xs font-mono text-slate-400 block -mt-1">REGISTRY v69.420</span>
+      </div>
     </div>
-    <div class="text-xs font-mono text-slate-400" id="live-status">SYSTEM: WAITING_FOR_INPUT</div>
+    <div class="text-xs font-mono text-emerald-400 flex items-center gap-1.5" id="live-status">
+      <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+      CHILLING
+    </div>
   </div>
 </div>
 
-<!-- Main Render Container -->
-<main id="app" class="flex-grow flex items-center justify-center p-4 pt-24 pb-12 z-10 w-full max-w-xl mx-auto"></main>
+<!-- Main Content -->
+<main id="app" class="flex-grow flex items-center justify-center p-6 pt-28 pb-12 z-10 w-full max-w-lg mx-auto"></main>
 
-<!-- Footer Info -->
-<footer class="w-full text-center py-4 text-[11px] font-mono text-slate-600 border-t border-slate-900 z-10">
-  NATIONAL BREAKUP REGISTRY PORTAL • SECURE SSL ENCRYPTED
+<!-- Footer -->
+<footer class="w-full text-center py-6 text-[10px] font-mono text-slate-500 border-t border-slate-900/50 z-10">
+  NATIONAL HEARTBREAK HQ • 100% DRAMA FREE • SSL + TEARS ENCRYPTED
 </footer>
 
-<!-- Premium Settlement Modal -->
-<div id="paymentModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-4 z-50">
-  <div class="premium-card rounded-2xl p-6 w-full max-w-md text-slate-200 shadow-2xl fade-enter border-t-4 border-t-pink-500">
-    <div class="flex justify-between items-start mb-4">
-      <div>
-        <h2 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">🛒 Liability Assessment</h2>
-        <p class="text-xs text-slate-400 mt-0.5">Itemized operational relationship expenses</p>
-      </div>
-      <span class="text-xs font-mono bg-pink-950/40 text-pink-400 px-2 py-1 rounded border border-pink-900/30">AUDIT_PENDING</span>
-    </div>
-
-    <div class="bg-slate-900/60 rounded-xl p-4 mb-5 border border-slate-800 font-medium text-xs space-y-2.5 text-slate-300">
-      <div class="flex justify-between"><span>🎬 Netflix & Multimedia Overhead</span><span class="font-mono">₹4,200.00</span></div>
-      <div class="flex justify-between"><span>🍕 Culinary Logistics (Overpriced Cafes)</span><span class="font-mono">₹14,850.00</span></div>
-      <div class="flex justify-between"><span>⛽ Fuel & Transit Offsets</span><span class="font-mono">₹6,420.00</span></div>
-      <div class="flex justify-between"><span>📞 Communication Surcharges (Late Night Rants)</span><span class="font-mono">₹1,500.00</span></div>
-      <div class="flex justify-between"><span>🎁 Token Allocations (Mandatory Gifts)</span><span class="font-mono">₹5,902.46</span></div>
-      <hr class="border-slate-800 my-2">
-      <div class="flex justify-between text-base font-bold text-white">
-        <span>Aggregate Total</span><span class="font-mono text-pink-400">₹32,872.46</span>
-      </div>
-    </div>
-
-    <div class="space-y-3">
-      <div class="space-y-2">
-        <input class="w-full text-sm p-3 rounded-xl bg-slate-900/90 border border-slate-800 focus:outline-none focus:border-pink-500 text-white placeholder-slate-500" placeholder="Cardholder Legal Name">
-        <input class="w-full text-sm p-3 rounded-xl bg-slate-900/90 border border-slate-800 focus:outline-none focus:border-pink-500 text-white font-mono placeholder-slate-500" placeholder="0000 0000 0000 0000">
-        <div class="flex gap-2">
-          <input class="w-1/2 text-sm p-3 rounded-xl bg-slate-900/90 border border-slate-800 focus:outline-none focus:border-pink-500 text-white font-mono placeholder-slate-500" placeholder="MM / YY">
-          <input class="w-1/2 text-sm p-3 rounded-xl bg-slate-900/90 border border-slate-800 focus:outline-none focus:border-pink-500 text-white font-mono placeholder-slate-500" placeholder="CVV">
+<!-- Payment Modal -->
+<div id="paymentModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-2xl flex items-center justify-center p-4 z-[100]">
+  <div class="premium-card rounded-3xl p-8 w-full max-w-md text-slate-200 fade-enter">
+    <div class="flex justify-between items-center mb-6">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">🧾</span>
+        <div>
+          <h2 class="text-2xl font-black tracking-tighter">FINAL DAMAGE REPORT</h2>
+          <p class="text-pink-400 text-sm">how much you owe emotionally</p>
         </div>
       </div>
-      
-      <button id="payBtn" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 py-3 rounded-xl font-semibold text-sm transition text-white shadow-lg shadow-pink-500/10 flex items-center justify-center gap-2">
-        <i class="fa fa-shield-halved text-xs"></i> Liquidate Assets & Authorize Payment
-      </button>
-      <button id="skipBtn" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 py-2.5 rounded-xl text-xs font-medium transition">Cry & Defer via Corporate EMI</button>
-      <p id="paymentLoading" class="hidden text-center font-mono text-xs text-pink-400 animate-pulse mt-2"></p>
     </div>
+
+    <div class="space-y-3 bg-slate-950/70 rounded-2xl p-5 mb-8 text-sm">
+      <div class="flex justify-between"><span>MOVIES & ENTERTAINMENT</span><span class="font-mono">₹4,200</span></div>
+      <div class="flex justify-between"><span>MANDI</span><span class="font-mono">₹14,850</span></div>
+      <div class="flex justify-between"><span>FUEL</span><span class="font-mono">₹6,420</span></div>
+      <div class="flex justify-between"><span>Late night texts & Calls</span><span class="font-mono">₹1,500</span></div>
+      <div class="flex justify-between"><span>GIFTS </span><span class="font-mono">₹5,902</span></div>
+      <hr class="border-slate-700">
+      <div class="flex justify-between text-xl font-black text-pink-400">
+        <span>TOTAL TRAUMA</span>
+        <span>₹32,872</span>
+      </div>
+    </div>
+
+    <button id="payBtn" class="w-full bg-gradient-to-r from-pink-500 to-violet-600 hover:from-pink-600 hover:to-violet-700 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-pink-500/30 flex items-center justify-center gap-3 active:scale-95 transition">
+      <i class="fa fa-credit-card"></i> PAY THE EMOTIONAL DEBT
+    </button>
+    <button id="skipBtn" class="w-full mt-3 bg-slate-800 hover:bg-slate-700 py-3 rounded-2xl text-sm font-medium">nah i'll cry in EMI</button>
   </div>
 </div>
 
-<!-- Refined Bottom Sheet EMI Modal -->
-<div id="emiModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-xl flex items-end justify-center z-50">
-  <div class="bg-slate-900 text-slate-200 w-full max-w-md rounded-t-3xl p-6 border-t border-slate-800 shadow-2xl slide-up">
-    <div class="text-center mb-4">
-      <div class="w-12 h-1 bg-slate-700 rounded-full mx-auto mb-4"></div>
-      <i class="fa fa-circle-nodes text-purple-400 text-3xl mb-2"></i>
-      <h2 class="text-lg font-bold text-white tracking-tight">Structured Financing Triggered</h2>
-      <p class="text-xs text-slate-400 mt-1">Direct debit protocol assigned via structural node</p>
+<!-- EMI Modal -->
+<div id="emiModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-2xl flex items-end justify-center z-[100]">
+  <div class="bg-slate-900 w-full max-w-md rounded-t-3xl p-8 border-t-4 border-purple-500">
+    <div class="w-12 h-1.5 bg-slate-700 rounded-full mx-auto mb-6"></div>
+    
+    <div class="text-center mb-8">
+      <span class="text-4xl block mb-3">📆</span>
+      <h2 class="text-2xl font-black">12 Months of Pain Payments</h2>
+      <p class="text-slate-400">just kidding it's only money</p>
     </div>
 
-    <div class="bg-slate-950 rounded-xl p-4 mb-4 text-xs font-mono space-y-2 border border-slate-800">
-      <p class="flex justify-between"><span class="text-slate-500">Monthly Tranche:</span><span class="text-white font-bold">₹2,739.38</span></p>
-      <p class="flex justify-between"><span class="text-slate-500">Amortization Period:</span><span class="text-white">12 Cycles</span></p>
-      <p class="flex justify-between"><span class="text-slate-500">Interest Metric:</span><span class="text-green-400">0.00% APR (Wow, so generous)</span></p>
-      <p class="flex justify-between"><span class="text-slate-500">Mandate AutoPay:</span><span class="text-purple-400">SYSTEM_ENABLED</span></p>
-      <hr class="border-slate-800 my-2">
-      <p class="text-[11px] text-slate-400 break-all text-center bg-slate-900 py-1.5 rounded">VPA: krishnapriyamanoj5@oksbi</p>
+    <div class="bg-slate-950 rounded-2xl p-6 space-y-4 text-sm mb-8">
+      <div class="flex justify-between"><span class="text-slate-400">Monthly</span><span class="font-bold">₹2,739</span></div>
+      <div class="flex justify-between"><span class="text-slate-400">Duration</span><span class="font-bold">12 months</span></div>
+      <div class="flex justify-between"><span class="text-slate-400">Interest</span><span class="text-emerald-400 font-bold">0% (lol)</span></div>
+      <div class="pt-4 border-t border-slate-700 text-center text-xs text-purple-400 font-mono">krishnapriyamanoj5@oksbi</div>
     </div>
 
-    <div class="flex gap-2">
-      <button id="acceptEmi" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold py-3 rounded-xl transition">Sign Digital Mandate</button>
-      <button id="cryBtn" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-medium py-3 rounded-xl transition">File Hardship (Cry)</button>
+    <div class="flex gap-3">
+      <button id="acceptEmi" class="flex-1 bg-purple-600 py-4 rounded-2xl font-bold">SIGN THE MANDATE</button>
+      <button id="cryBtn" class="flex-1 bg-slate-700 py-4 rounded-2xl">JUST CRY</button>
     </div>
-    <p id="emiLoading" class="hidden text-center font-mono text-xs text-purple-400 animate-pulse mt-3"></p>
   </div>
 </div>
 
 <script>
-// GLOBAL STATE ARCHITECTURE
+// STATE
 let selectedName = "";
 let progress = 0;
-let settlementType = "Standard Clearance";
+let settlementType = "Standard Breakup Tax";
 let evasionCount = 0;
-const MAX_EVASIONS = 4; // Button jumps 4 times, becomes stable on the 5th attempt
+const MAX_EVASIONS = 5;
 
-function setStatus(text) { document.getElementById("live-status").innerText = `STATUS: ${text}`; }
-function updateProgress(val) { progress = val; document.getElementById("progress").style.width = progress + "%"; }
+function setStatus(text) { 
+  document.getElementById("live-status").innerHTML = `
+    <div class="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
+    ${text}
+  `; 
+}
+function updateProgress(val) { 
+  progress = val; 
+  document.getElementById("progress").style.width = progress + "%"; 
+}
 function render(html, prog, statusText) { 
   updateProgress(prog); 
-  setStatus(statusText || "PROCESSING"); 
+  setStatus(statusText); 
   document.getElementById("app").innerHTML = html; 
 }
 
-// SCREEN 1: THE DISPATCH
+// SCREEN 1
 function screen1(){
   render(`
-  <div class="text-center fade-enter max-w-sm">
-    <div class="text-5xl broken-heart mb-6 filter drop-shadow-[0_0_15px_rgba(236,72,153,0.3)]">💔</div>
-    <h1 class="text-2xl font-bold text-white tracking-tight mb-2">Breakup Request Received</h1>
-    <p class="text-xs text-slate-400 font-mono mb-4">ID: REQ-2026-VOID</p>
-    <div class="premium-card p-5 rounded-2xl mb-6 text-sm text-slate-300 leading-relaxed text-left border border-slate-800">
-      <i class="fa fa-quote-left text-pink-500/40 text-xs block mb-1"></i>
-      "I think it's time we decouple our repositories and branch into independent subroutines. Thanks for the allocated runtime memory... ❤️"
+  <div class="text-center fade-enter">
+    <div class="text-[120px] broken-heart mb-4">💔</div>
+    <h1 class="text-4xl font-black tracking-tighter neon-text mb-2">yo... it's over?</h1>
+    <p class="text-slate-400 text-lg">we got the official "it's not you, it's me" request</p>
+    
+    <div class="premium-card p-6 rounded-3xl mt-10 text-left">
+      <p class="italic text-slate-300">"I think we should branch into different repos and stop merging our lives..."</p>
     </div>
-    <button onclick="screen2()" class="w-full bg-white text-slate-950 py-3 rounded-xl text-sm font-bold tracking-tight hover:bg-slate-100 transition shadow-xl shadow-white/5">
-      Acknowledge Paperwork Protocol
+
+    <button onclick="screen2()" class="mt-10 w-full bg-white text-slate-950 py-5 rounded-3xl text-xl font-bold hover:scale-105 active:scale-95 transition shadow-2xl">
+      yeah whatever, let's do this 💀
     </button>
   </div>
-  `, 15, "INCOMING_DISPATCH");
+  `, 15, "CRYING IN THE CLUB");
 }
 
-// SCREEN 2: INITIAL REGISTRY
+// SCREEN 2
 function screen2(){
   render(`
-  <div class="premium-card p-6 rounded-2xl text-center w-full max-w-sm fade-enter">
-    <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center mx-auto mb-4 border border-slate-800 text-slate-400">
-      <i class="fa fa-file-signature text-sm"></i>
-    </div>
-    <h2 class="text-xl font-bold text-white tracking-tight">Legal Separation Form BR-2026</h2>
-    <p class="text-xs text-slate-500 font-mono mt-0.5">Section IV: Dissolution & Release</p>
+  <div class="premium-card p-8 rounded-3xl text-center fade-enter">
+    <div class="mx-auto w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center text-3xl mb-6">📜</div>
+    <h2 class="text-3xl font-black mb-2">Breakup Form BR-69</h2>
+    <p class="text-pink-400">Section: "It's Joever"</p>
     
-    <div class="my-5 text-left text-xs text-slate-400 space-y-2 bg-slate-950/50 p-3 rounded-xl border border-slate-900">
-      <p class="flex items-start gap-2"><i class="fa fa-check text-pink-500 mt-0.5"></i> Waives all rights to 'You up?' late-night check-ins.</p>
-      <p class="flex items-start gap-2"><i class="fa fa-check text-pink-500 mt-0.5"></i> Grants permission to mutually archive Instagram posts.</p>
-      <p class="flex items-start gap-2"><i class="fa fa-check text-pink-500 mt-0.5"></i> Mandates a heavy rotation of Spotify sad-girl/sad-boy playlists.</p>
+    <div class="text-left mt-8 space-y-6 text-slate-300">
+      <div class="flex gap-4">
+        <span class="text-2xl">✅</span>
+        <div>No more "wyd" at 2am</div>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-2xl">✅</span>
+        <div>Instagram stories can be archived</div>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-2xl">✅</span>
+        <div>Spotify is now 100% sad girl hours</div>
+      </div>
     </div>
 
-    <button onclick="screen3()" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-xl text-sm font-bold tracking-tight hover:opacity-95 transition">
-      Initialize Subroutine Partition
+    <button onclick="screen3()" class="mt-10 w-full bg-gradient-to-r from-pink-500 to-violet-600 py-5 rounded-3xl text-xl font-bold">
+      SIGN THE DAMN PAPERS
     </button>
   </div>
-  `, 30, "SYSTEM_READY");
+  `, 35, "FILLING FORMS");
 }
 
-// SCREEN 3: PROFILE SELECTOR
+// SCREEN 3 - Profile select
 function screen3(){
   render(`
-  <div class="w-full fade-enter">
-    <div class="text-center mb-6">
-      <h2 class="text-xl font-bold text-white tracking-tight">Who is breaking up with me?</h2>
-      <p class="text-xs text-slate-400">Select the culprit responsible for this structural isolation</p>
+  <div class="fade-enter">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-black tracking-tight">Who's dumping me tho?</h2>
+      <p class="text-slate-400 mt-2">pick the villain</p>
     </div>
-    <div class="grid grid-cols-2 gap-3">
+    <div class="grid grid-cols-2 gap-4">
       ${["Anagha", "Krishnapriya", "Anjana", "Pooja"].map(name => `
-      <div onclick="selectProfile('${name}')" class="premium-card p-5 rounded-xl cursor-pointer hover:border-pink-500/40 hover:bg-slate-900/40 text-center transition group relative overflow-hidden">
-        <div class="w-10 h-10 rounded-full bg-slate-900 text-slate-400 flex items-center justify-center mx-auto mb-3 border border-slate-800 group-hover:text-pink-400 transition">
-          <i class="fa fa-user-gear text-sm"></i>
-        </div>
-        <p class="text-sm font-semibold text-white group-hover:text-pink-400 transition">${name}</p>
-        <p class="text-[10px] font-mono text-slate-500 mt-0.5">NODE_NODE_ID</p>
+      <div onclick="selectProfile('${name}')" class="premium-card p-6 rounded-3xl cursor-pointer hover:scale-105 hover:border-pink-400 transition-all group">
+        <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center text-4xl mb-4 group-active:scale-90">👤</div>
+        <p class="text-xl font-bold text-center">${name}</p>
+        <p class="text-xs text-slate-500 text-center mt-1">suspect #1</p>
       </div>`).join("")}
     </div>
   </div>
-  `, 50, "SELECT_ENTITY");
+  `, 55, "CHOOSING VICTIM");
 }
 
-function selectProfile(name){ selectedName = name; evasionCount = 0; screen4(); }
+function selectProfile(name){ 
+  selectedName = name; 
+  evasionCount = 0; 
+  screen4(); 
+}
 
-// SCREEN 4: CONFIRMATION WITH EVASION SYSTEM
+// SCREEN 4 - Evasion button
 function screen4(){
   render(`
-  <div class="premium-card p-6 rounded-2xl text-center w-full max-w-sm fade-enter relative min-h-[260px] flex flex-col justify-between" id="evasion-container">
-    <div>
-      <h2 class="text-lg font-bold text-white tracking-tight">Final Authorization Prompt</h2>
-      <span class="text-pink-400 font-bold">${selectedName}</span><p class="text-xs text-slate-400 mt-1">Are you absolutely certain you want to commit the breakup sequence with ASWIN ?</p>
-    </div>
-    
-    <div class="bg-slate-950/60 border border-slate-900 p-3 rounded-xl my-4 text-xs font-mono text-slate-500">
-      Warning: Changes cannot be reverted via a simple git revert. Emotional merge conflicts imminent.
+  <div class="premium-card p-8 rounded-3xl text-center fade-enter min-h-[320px] flex flex-col" id="evasion-container">
+    <div class="flex-1">
+      <h2 class="text-2xl font-black mb-3">Last chance bro...</h2>
+      <p class="text-pink-400 text-xl font-bold">${selectedName}</p>
+      <p class="text-slate-400 mt-1">you sure you wanna dump ASWIN?</p>
     </div>
 
-    <!-- Interactive Flex Zone For Evasion Behavior -->
-    <div class="flex items-center justify-center gap-3 w-full relative min-h-[50px]" id="btn-zone">
-      <button onclick="showDenial()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium text-xs rounded-xl transition min-w-[80px]">
-        Wait, No! (Abort)
-      </button>
-      <button id="agreeBtn" onclick="handleAgreementClick()" class="evade-btn px-6 py-2.5 bg-pink-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-pink-500/20 min-w-[90px]">
-        Yes, Dump 'Em
-      </button>
+    <div class="mt-auto pt-8">
+      <div id="btn-zone" class="relative h-24 flex items-center justify-center">
+        <button onclick="showDenial()" class="absolute left-4 px-8 py-3 bg-slate-700 hover:bg-slate-600 rounded-2xl text-sm font-medium">
+          WAIT NO 😭
+        </button>
+        <button id="agreeBtn" onclick="handleAgreementClick()" class="evade-btn absolute right-4 px-10 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black rounded-3xl shadow-2xl">
+          YES, DUMP THEM
+        </button>
+      </div>
     </div>
   </div>
-  `, 70, "AWAITING_VERIFICATION");
+  `, 70, "LAST CHANCE");
 }
 
-// EVASIVE LOGIC
 function handleAgreementClick() {
   const btn = document.getElementById('agreeBtn');
   if (!btn) return;
@@ -255,48 +282,48 @@ function handleAgreementClick() {
   if (evasionCount < MAX_EVASIONS) {
     evasionCount++;
     
-    // Generate completely random metrics inside screen bounds
     const container = document.getElementById('evasion-container');
     const rect = container.getBoundingClientRect();
     
-    // Shift boundaries within safe local ranges
-    const randomX = (Math.random() - 0.5) * (rect.width - 100);
-    const randomY = (Math.random() - 0.5) * (rect.height - 120);
+    const randomX = (Math.random() - 0.5) * (rect.width * 0.6);
+    const randomY = (Math.random() - 0.5) * (rect.height * 0.4);
 
     btn.style.position = 'absolute';
-    btn.style.zIndex = '100';
-    btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    btn.style.left = `calc(50% + ${randomX}px)`;
+    btn.style.top = `calc(60% + ${randomY}px)`;
     
-    // Random system messages on status ticker to add spice
-    const warningTones = ["EVADING_SIGNATURE", "TARGET_REFUSES_COMPLIANCE", "MUTUAL_CONFLICT_DETECTED", "SYSTEM_OVERRIDE_RUNNING"];
-    setStatus(warningTones[evasionCount - 1]);
+    const messages = ["RUNNING AWAY...", "NOT TODAY!", "CATCH ME IF YOU CAN", "EVADING...", "ONE MORE TIME"];
+    setStatus(messages[evasionCount - 1]);
   } else {
-    // 5th click satisfies constraint
     openPayment();
   }
 }
 
 function showDenial(){
-  let div = document.createElement("div");
-  div.className = "fixed inset-0 flex items-center justify-center bg-slate-950/80 backdrop-blur-xl z-50 p-4";
-  div.innerHTML = `<div class="premium-card p-6 rounded-2xl text-center max-w-xs fade-enter border border-slate-800">
-    <p class="text-sm font-semibold text-white mb-2">Denial Exception Intercepted (Nice Try)</p>
-    <p class="text-xs text-slate-400 mb-4 font-mono">Status code: 403_DELUSION_NOT_ALLOWED. You must advance the form.</p>
-    <button class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs py-2.5 rounded-xl font-mono transition" onclick="this.parentElement.parentElement.remove(); openPayment();">Accept Reality & Force Next Stage</button>
-  </div>`;
+  const div = document.createElement("div");
+  div.className = "fixed inset-0 flex items-center justify-center bg-black/90 backdrop-blur-xl z-[200] p-4";
+  div.innerHTML = `
+    <div class="premium-card p-8 rounded-3xl text-center max-w-xs fade-enter">
+      <p class="text-2xl mb-4">😂 nice try</p>
+      <p class="text-slate-400">you can't escape the paperwork</p>
+      <button onclick="this.closest('.fixed').remove(); openPayment()" 
+              class="mt-6 w-full bg-white text-black py-4 rounded-2xl font-bold">
+        FINE, LET'S FINISH THIS
+      </button>
+    </div>`;
   document.body.appendChild(div);
 }
 
-// PAYMENT STAGE LOGIC
+// Payment
 function openPayment(){
   document.getElementById("paymentModal").classList.remove("hidden");
   updateProgress(85);
-  setStatus("FINANCIAL_SETTLEMENT");
+  setStatus("COLLECTING TAX");
 }
 
 document.getElementById("payBtn").onclick = function(){
-  settlementType = "Paid via Cash Reserve (₹32,872.46)";
-  executeLoadingChain("paymentLoading", ["Auditing liabilities...", "Calculating depreciation...", "Routing node to Central Registry...", "Generating ultimate character development..."], closePayment);
+  settlementType = "Paid in full (₹32,872)";
+  executeLoadingChain("paymentLoading", ["calculating emotional damage...", "charging your vibe card...", "finalizing the L..."], closePayment);
 };
 
 document.getElementById("skipBtn").onclick = function(){
@@ -306,159 +333,137 @@ document.getElementById("skipBtn").onclick = function(){
 function closePayment(){ document.getElementById("paymentModal").classList.add("hidden"); }
 
 document.getElementById("acceptEmi").onclick = function(){
-  settlementType = "12-Cycle Tokenized EMI (₹2,739.38/mo)";
-  executeLoadingChain("emiLoading", ["Constructing NPCI bridge...", "Injecting system auto-debit protocols...", "Mandate signed successfully ✅"], closeEmi);
+  settlementType = "EMI for 12 months (₹2,739/mo)";
+  executeLoadingChain("emiLoading", ["setting up auto-debit...", "signing digital trauma...", "done ✅"], closeEmi);
 };
 
 document.getElementById("cryBtn").onclick = function(){
-  settlementType = "Emotional Hardship Clearance";
-  executeLoadingChain("emiLoading", ["Error: Tears are not recognized as liquid currency.", "Processing melancholy telemetry...", "Overriding protocols..."], closeEmi);
+  settlementType = "Paid in tears";
+  executeLoadingChain("emiLoading", ["processing sadness...", "converting tears to rupees...", "accepted"], closeEmi);
 };
 
-function closeEmi(){ document.getElementById("emiModal").classList.add("hidden"); closePayment(); }
-
-function executeLoadingChain(elementId, messages, closeCallback) {
-  let el = document.getElementById(elementId);
-  el.classList.remove("hidden");
-  let i = 0;
-  let interval = setInterval(() => {
-    el.innerText = messages[i++];
-    if(i >= messages.length){
-      clearInterval(interval);
-      setTimeout(() => { closeCallback(); screen6(); }, 1000);
-    }
-  }, 900);
+function closeEmi(){ 
+  document.getElementById("emiModal").classList.add("hidden"); 
+  closePayment(); 
 }
 
-// FINAL REALISTIC SCREEN 6: DIGITAL REGISTRY CERTIFICATE
+function executeLoadingChain(elementId, messages, closeCallback) {
+  let i = 0;
+  const el = document.createElement("div");
+  el.id = elementId;
+  el.className = "text-center text-pink-400 font-mono text-sm animate-pulse mt-4";
+  document.querySelector("#paymentModal > div").appendChild(el);
+  
+  const interval = setInterval(() => {
+    el.textContent = messages[i++];
+    if(i >= messages.length){
+      clearInterval(interval);
+      setTimeout(() => { 
+        el.remove();
+        closeCallback(); 
+        screen6(); 
+      }, 800);
+    }
+  }, 700);
+}
+
+// FINAL SCREEN
 function screen6(){
   updateProgress(100);
   const now = new Date();
-  const timestamp = now.toLocaleDateString('en-IN', { dateStyle: 'medium' }) + ' ' + now.toLocaleTimeString('en-IN', { timeStyle: 'short' });
+  const timestamp = now.toLocaleDateString('en-IN', { dateStyle: 'long' }) + ' ' + now.toLocaleTimeString('en-IN', { timeStyle: 'short' });
 
   render(`
-  <div class="w-full text-center fade-enter mx-auto px-2">
-    <div class="w-14 h-14 bg-emerald-950/40 text-emerald-400 border border-emerald-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
-      <i class="fa fa-circle-check"></i>
+  <div class="text-center fade-enter">
+    <div class="mx-auto w-24 h-24 bg-emerald-900/50 rounded-full flex items-center justify-center text-6xl mb-6 border border-emerald-500/30">
+      🎉
     </div>
-    <h1 class="text-2xl font-bold text-white tracking-tight mb-1">Registry Finalized & Sealed</h1>
-    <p class="text-xs text-slate-400 font-mono mb-6">TRANSACTION_HASH: 0x9f8b4...${Math.floor(Math.random()*9000+1000)}</p>
+    <h1 class="text-4xl font-black tracking-tighter mb-2">IT'S OFFICIALLY OVER 🔥</h1>
+    <p class="text-emerald-400 font-mono">${timestamp}</p>
 
-    <!-- Professional Certificate View -->
-    <div class="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 rounded-2xl p-6 shadow-2xl border border-slate-800 text-left relative overflow-hidden mb-6">
-      <div class="absolute -right-8 -bottom-8 text-9xl opacity-5 pointer-events-none text-slate-400">📜</div>
+    <div class="premium-card mt-10 p-8 rounded-3xl text-left">
+      <div class="text-center border-b border-slate-700 pb-6">
+        <p class="uppercase text-xs tracking-widest text-pink-400">Certificate of Single Life</p>
+        <p class="text-2xl font-black mt-3 text-white">${selectedName} & ASWIN = TERMINATED</p>
+      </div>
       
-      <div class="text-center border-b border-slate-800 pb-4 mb-4">
-        <h2 class="text-xs font-bold font-mono tracking-widest text-pink-500 uppercase">Official Certificate of Relationship Dissolution</h2>
-        <p class="text-[10px] text-slate-500 mt-1">Issued under the Global Heartbreak Registry • Code: SEC-77</p>
+      <div class="py-8 text-center space-y-6 text-slate-300">
+        <p class="text-xl">You are now free to:</p>
+        <div class="flex justify-center gap-8 text-4xl">
+          <div>💃</div>
+          <div>🎮</div>
+          <div>🍕</div>
+        </div>
       </div>
 
-      <div class="space-y-4 my-6 text-xs text-slate-400 leading-relaxed text-center">
-        <p class="italic">This digital signature confirms that the emotional bandwidth connecting you to</p>
-        <p class="text-lg font-bold text-white tracking-tight underline decoration-pink-500 decoration-2 underline-offset-4">${selectedName}</p>
-        <p class="italic">has successfully timed out. All runtime bindings are terminated, granting you absolute independence (and full control of the TV remote).</p>
-      </div>
-
-      <div class="bg-slate-900/90 p-4 rounded-xl space-y-1.5 text-[11px] font-mono border border-slate-800/60 text-slate-400">
-        <p class="flex justify-between"><span class="text-slate-600">TIMESTAMP:</span><span class="text-slate-200">${timestamp}</span></p>
-        <p class="flex justify-between"><span class="text-slate-600">SETTLEMENT:</span><span class="text-slate-200">${settlementType}</span></p>
-        <p class="flex justify-between"><span class="text-slate-600">BILLING MANDATE:</span><span class="text-purple-400">krishnapriyamanoj5@oksbi</span></p>
-        <p class="flex justify-between"><span class="text-slate-600">REGISTRY STATUS:</span><span class="text-emerald-400 font-bold">TERMINATED_SUCCESSFULLY</span></p>
-      </div>
-
-      <div class="mt-6 flex justify-between text-[9px] font-mono text-slate-600 pt-3 border-t border-slate-900">
-        <span>AUTHENTICATOR: TIME_ALGORITHM</span>
-        <span>ISSUER: DEPT_OF_RELEASES</span>
+      <div class="bg-slate-950 rounded-2xl p-5 text-xs font-mono space-y-2">
+        <div class="flex justify-between"><span>Settlement</span><span class="text-emerald-400">${settlementType}</span></div>
+        <div class="flex justify-between"><span>UPI</span><span>krishnapriyamanoj5@oksbi</span></div>
+        <div class="flex justify-between"><span>Status</span><span class="text-emerald-400 font-bold">SINGLE & READY TO MINGLE</span></div>
       </div>
     </div>
 
-    <!-- Perks Alert -->
-    <div class="grid grid-cols-3 gap-2 mb-6 font-mono text-[10px] text-center">
-      <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800/80"><span class="text-pink-400 block font-bold mb-0.5">✨ INDEPENDENCE</span>Unlocked</div>
-      <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800/80"><span class="text-purple-400 block font-bold mb-0.5">+5000 EXP</span>Character Level</div>
-      <div class="bg-slate-900 p-2.5 rounded-lg border border-slate-800/80"><span class="text-indigo-400 block font-bold mb-0.5">+100% BURN</span>Gym Motivation</div>
+    <div class="mt-8 grid grid-cols-3 gap-3 text-xs">
+      <div class="bg-slate-900/70 p-4 rounded-2xl">+5000 EXP</div>
+      <div class="bg-slate-900/70 p-4 rounded-2xl">OPEN TO DATING</div>
+      <div class="bg-slate-900/70 p-4 rounded-2xl">NO MORE DRAMA</div>
     </div>
 
-    <!-- Actions -->
-    <div class="flex flex-col gap-2 justify-center w-full">
-      <button onclick="location.reload()" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 px-5 py-3 rounded-xl text-xs font-medium transition w-full">
-        Start Over (Reload Portal)
-      </button>
-      <div class="mt-2 text-xs font-mono text-pink-400 animate-pulse text-center bg-slate-950/50 p-3 rounded-xl border border-slate-900">
-        Serving digital papers via WhatsApp in <span id="countdownText" class="font-bold text-white text-sm">5</span> seconds...
-      </div>
+    <button onclick="location.reload()" class="mt-10 w-full py-5 bg-white/10 hover:bg-white/20 border border-white/30 rounded-3xl text-lg font-medium">
+      do it again
+    </button>
+
+    <div class="mt-6 text-xs text-pink-400 font-mono animate-pulse">
+      Sending digital breakup text in <span id="countdownText" class="font-bold">12</span>s...
     </div>
   </div>
-  `, 100, "EXECUTION_SUCCESSFUL");
-  confetti();
-setTimeout(confetti, 400);
-setTimeout(confetti, 800);
-setTimeout(confetti, 1200);
+  `, 100, "MISSION COMPLETE");
 
-  // 5 Second Countdown and Redirect to WhatsApp
-  let timeLeft = 15;
-  let countdownTimer = setInterval(() => {
+  confetti();
+  setTimeout(confetti, 300);
+  setTimeout(confetti, 700);
+
+  let timeLeft = 12;
+  const timer = setInterval(() => {
     timeLeft--;
-    const timerEl = document.getElementById("countdownText");
-    if (timerEl) {
-      timerEl.innerText = timeLeft;
-    }
+    const el = document.getElementById("countdownText");
+    if (el) el.textContent = timeLeft;
     if (timeLeft <= 0) {
-      clearInterval(countdownTimer);
+      clearInterval(timer);
       sendToWhatsApp(timestamp);
     }
   }, 1000);
 }
 
-// WHATSAPP URL INTERACTION
 function sendToWhatsApp(timestamp){
-  const message = `*💔 METRIC DISPATCH: DISCOVERY REQ-VOID*%0A%0A` +
-  `This document legally confirms that *${selectedName}* has processed an official breakup form via the Heartbreak Registry Channel.%0A%0A` +
-  `📅 *Execution Time:* ${timestamp}%0A` +
-  `💸 *Settlement Allocation:* ${settlementType}%0A` +
-  `💳 *Assigned UPI Mandate:* krishnapriyamanoj5@oksbi%0A` +
-  `✅ *Network Status:* Connection Safely Severed (No Take-Backs)%0A%0A` +
-  `*Attributes Generated:*%0A` +
-  `• Character Growth: +5000 EXP 📈%0A` +
-  `• Physical Matrix: +100% Gym Motivation 🏋️%0A` +
-  `• Freedom Index: Fully Attained ✨`;
+  const message = `*💔 OFFICIAL BREAKUP ALERT*%0A%0A` +
+    `Congrats! ${selectedName} just got served digital papers.%0A%0A` +
+    `Date: ${timestamp}%0A` +
+    `Payment: ${settlementType}%0A` +
+    `Status: SINGLE AF%0A%0A` +
+    `New perks unlocked: gym motivation + freedom`;
 
   window.location.href = `https://wa.me/+918589023699?text=${message}`;
 }
 
-// SHARP PREMIUM CONFETTI EFFECT
 function confetti() {
-  const colors = [
-    "#ff4d6d",
-    "#ffd60a",
-    "#00f5d4",
-    "#7b2cbf",
-    "#ffffff",
-    "#4cc9f0",
-    "#ff9f1c"
-  ];
-
-  for (let i = 0; i < 200; i++) {
-    let div = document.createElement("div");
+  const colors = ["#ec4899", "#a855f7", "#eab308", "#22d3ee", "#f43f5e", "#ffffff"];
+  for (let i = 0; i < 180; i++) {
+    const div = document.createElement("div");
     div.className = "confetti";
-
-    const size = Math.random() * 10 + 6;
-
+    const size = Math.random() * 12 + 8;
     div.style.left = Math.random() * 100 + "%";
     div.style.width = size + "px";
     div.style.height = size + "px";
-    div.style.backgroundColor =
-      colors[Math.floor(Math.random() * colors.length)];
-    div.style.animationDuration = (Math.random() * 2 + 3) + "s";
-    div.style.transform = `rotate(${Math.random() * 360}deg)`;
-
+    div.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    div.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    div.style.opacity = Math.random() * 0.8 + 0.4;
     document.body.appendChild(div);
-
-    setTimeout(() => div.remove(), 5000);
+    setTimeout(() => div.remove(), 6000);
   }
 }
 
-// START PROTOCOL
+// START
 screen1();
 </script>
 </body>
